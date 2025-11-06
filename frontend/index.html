@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        --grid-color: rgba(255, 112, 0, 0.1); /* Adjusted grid color to match new theme */
+        --grid-size: 50px;
+        background-image:
+          linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+        background-size: var(--grid-size) var(--grid-size);
+        font-family: 'Roboto', sans-serif;
+      }
+      .font-orbitron {
+        font-family: 'Orbitron', sans-serif;
+      }
+      @keyframes pulse-glow {
+        0%, 100% {
+          text-shadow: 0 0 5px #ff7000, 0 0 10px #ff7000, 0 0 15px #ff7000;
+          opacity: 0.8;
+        }
+        50% {
+          text-shadow: 0 0 10px #ff7000, 0 0 20px #ff7000, 0 0 30px #ff7000;
+          opacity: 1;
+        }
+      }
+      .text-glow {
+        animation: pulse-glow 3s infinite ease-in-out;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              orbitron: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              'primary': '#f97316', // Vibrant Orange (Tailwind Orange 500)
+              'primary-hover': '#fb923c', // Lighter Orange (Tailwind Orange 400)
+              'secondary': '#00ffff', // Neon Cyan/Teal
+              'background': '#1a0537', // Deep Purple
+              'surface': '#2c125a', // Lighter Purple for cards
+              'text-light': '#e0d8ff',
+              'text-medium': '#a89cc8',
+            },
+            animation: {
+              'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+            },
+            keyframes: {
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@next/",
+    "react": "https://esm.sh/react@next",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-text-light">
+    <div id="root"></div>
+    <script type="module" src="/frontend/index.tsx"></script>
+  </body>
+</html>
